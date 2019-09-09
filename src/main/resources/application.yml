@@ -1,0 +1,20 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: consumer-1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer:8000/eureka/,http://peer1:8001/eureka/,http://peer2:8002/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
